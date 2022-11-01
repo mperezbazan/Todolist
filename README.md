@@ -1,20 +1,23 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Webpack Exercise
+# To Do List
 
-
-> This branch (webpack) I did in this branch the followings 👌 :
-- [x] Install webpack
-- [x] Add html template
-- [x] Add CSS
-- [x] Setup local dev server
+> This branch (features) I did in this branch the followings 👌 :
+- [x] Setup project with webpack
+- [x] Create index.html using HTML Webpack Plugin
+- [x] Create index.js
+- [x] Add array of to do tasks 
+- [x] Iterate array and add dynamically to HTML
+- [x] Create style.css loaded by Webpack Style/CSS Loader
+- [x] Locate files in /src
 
 
 ## Built With
 
 - HTML
 - CSS
-- JavaScript 
+- JavaScript
+- Webpack
 
 
 
@@ -24,6 +27,15 @@
 
 
 To get a local copy up and running follow these simple example steps.
+
+### Install
+
+- `git clone "https://github.com/mperezbazan/Todolist.git`
+- `npm install`
+
+### Usage
+
+- `npm start`
 
 
 ## Authors
