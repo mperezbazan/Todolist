@@ -22,7 +22,7 @@ const tasks = [
 ];
 
 const listDiv = document.querySelector('.list-container');
-
+listDiv.innerHTML = '';
 const render = () => {
   const element = document.createElement('ul');
   const title = document.createElement('li');
