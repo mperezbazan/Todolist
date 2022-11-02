@@ -90,3 +90,11 @@ body {
   color: rgba(0, 0, 0, 0.3);
   accent-color: green;
 }
+
+.edit {
+  background-color: beige;
+}
+
+.display-none {
+  display: none;
+}
