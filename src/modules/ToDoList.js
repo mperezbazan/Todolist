@@ -29,6 +29,7 @@ export default class ToDoList {
   }
 
   getAll() {
+    this.list = JSON.parse(localStorage.getItem('data')) || [];
     const data = [];
     this.list.forEach((item) => {
       const moreIcon = new Image();
@@ -37,8 +38,8 @@ export default class ToDoList {
       li.id = `task-${item.index}`;
       li.innerHTML = `
       <div class="checkbox-container">
-        <input type="checkbox" id="cbox${item.index}" value="first_checkbox" class='checkbox' ${item.completed ? 'checked' : ''}>
-        <label for='cbox${item.index}' id='label-${item.index}' class=' ${item.completed ? 'completed' : ''}'> 
+        <input type="checkbox" id="cbox-${item.index}" value="first_checkbox" class='checkbox' ${item.completed ? 'checked' : ''}>
+        <label for='cbox-${item.index}' id='label-${item.index}' class=' ${item.completed ? 'completed' : ''}'> 
           ${item.description}
         </label>
         <input class='input-edit-text display-none' type='text' name='editItem' id='editItem-${item.index}' value='${item.description}'/>
@@ -67,6 +68,12 @@ export default class ToDoList {
       item.index = counter;
       counter += 1;
     });
+    localStorage.setItem('data', JSON.stringify(this.list));
+  }
+
+  clearCompleted() {
+    const newList = this.list.filter((element) => element.completed !== true);
+    this.list = newList;
     localStorage.setItem('data', JSON.stringify(this.list));
   }
 }
