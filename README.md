@@ -35,7 +35,10 @@ To get a local copy up and running follow these simple example steps.
 
 ### Usage
 
-- `npm start`
+- `npm start` to start the app
+- You can add tasks in "Add to your list..."
+- You can edit tasks with double click in the task or click in the Ellipsis icon to enter at EDIT MODE.
+- You can delete tasks with click in the Ellipsis icon to enter at EDIT MODE and click in Trash icon.
 
 
 ## Authors
