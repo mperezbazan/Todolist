@@ -3,6 +3,7 @@ import EnterIcon from './img/arrow-enter.svg';
 import RotateIcon from './img/arrows-rotate-solid.svg';
 import ToDoList from './modules/ToDoList.js';
 import Task from './modules/Task.js';
+import CompleteTask from './modules/CompleteTask.js';
 
 const tasks = new ToDoList();
 const listDiv = document.querySelector('.list-container');
@@ -139,6 +140,17 @@ function addListener() {
       }
     });
   });
+  const checkboxs = listDiv.querySelectorAll('.checkbox');
+  checkboxs.forEach((checkbox) => {
+    checkbox.addEventListener('change', (e) => {
+      const { id } = e.target;
+      const index = id.substring(id.indexOf('-') + 1, id.length);
+      const completed = new CompleteTask();
+      completed.changeState(index);
+      refreshList();
+      addListener();
+    });
+  });
 }
 addButton.addEventListener('click', () => {
   const data = new Task(inputText.value);
@@ -163,4 +175,5 @@ refreshButton.addEventListener('click', () => {
   refreshList();
   addListener();
 });
+
 addListener();
