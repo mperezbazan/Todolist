@@ -40,6 +40,8 @@ To get a local copy up and running follow these simple example steps.
 - You can edit tasks with double click in the task or click in the Ellipsis icon to enter at EDIT MODE.
 - You can delete tasks with click in the Ellipsis icon to enter at EDIT MODE and click in Trash icon.
 
+### Live Version
+[ToDoList Project](https://mperezbazan.github.io/Todolist/dist/)
 
 ## Authors
 
