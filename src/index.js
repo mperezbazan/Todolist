@@ -43,7 +43,7 @@ const renderList = () => {
 };
 const renderFoot = () => {
   const button = document.createElement('div');
-  button.innerHTML = '<button class=\'clearButton\' type=\'button\'>Clear all completed</button>';
+  button.innerHTML = '<button class=\'clearButton\' type=\'button\' id=\'clearButton\'>Clear all completed</button>';
   button.classList.add('row-button');
   return button;
 };
@@ -172,6 +172,13 @@ inputText.addEventListener('keypress', (e) => {
 });
 const refreshButton = document.querySelector('#refreshButton');
 refreshButton.addEventListener('click', () => {
+  refreshList();
+  addListener();
+});
+const clearButton = document.querySelector('#clearButton');
+clearButton.addEventListener('click', () => {
+  tasks.clearCompleted();
+  tasks.reindex();
   refreshList();
   addListener();
 });

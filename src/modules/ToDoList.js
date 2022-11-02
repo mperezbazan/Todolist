@@ -70,4 +70,10 @@ export default class ToDoList {
     });
     localStorage.setItem('data', JSON.stringify(this.list));
   }
+
+  clearCompleted() {
+    const newList = this.list.filter((element) => element.completed !== true);
+    this.list = newList;
+    localStorage.setItem('data', JSON.stringify(this.list));
+  }
 }
