@@ -1,4 +1,5 @@
 import EllipsisIcon from '../img/ellipsis-vertical-solid.svg';
+import TrashIcon from '../img/trash-can-solid.svg';
 
 export default class ToDoList {
   constructor() {
@@ -13,28 +14,48 @@ export default class ToDoList {
   }
 
   remove(index) {
-    this.list.splice(index, 1);
+    this.list.splice(index - 1, 1);
     localStorage.setItem('data', JSON.stringify(this.list));
   }
 
   edit(data) {
-    console.log(data, this.list);
+    const { index, description } = data;
+    this.list.forEach((element) => {
+      if (element.index === parseInt(index, 10)) {
+        element.description = description;
+      }
+    });
+    localStorage.setItem('data', JSON.stringify(this.list));
   }
 
   getAll() {
     const data = [];
     this.list.forEach((item) => {
       const moreIcon = new Image();
+      const trashIcon = new Image();
       const li = document.createElement('li');
       li.id = `task-${item.index}`;
-      li.innerHTML = `<label class='${item.completed ? 'completed' : ''}'><input type="checkbox" id="cbox${item.index}" value="first_checkbox" class='checkbox' ${item.completed ? 'checked' : ''}> ${item.description}</label>`;
+      li.innerHTML = `
+      <div class="checkbox-container">
+        <input type="checkbox" id="cbox${item.index}" value="first_checkbox" class='checkbox' ${item.completed ? 'checked' : ''}>
+        <label for='cbox${item.index}' id='label-${item.index}' class=' ${item.completed ? 'completed' : ''}'> 
+          ${item.description}
+        </label>
+        <input class='input-edit-text display-none' type='text' name='editItem' id='editItem-${item.index}' value='${item.description}'/>
+      <div>`;
       li.appendChild(moreIcon);
+      li.appendChild(trashIcon);
       li.classList.add('row');
       li.classList.add('input');
       moreIcon.src = EllipsisIcon;
       moreIcon.classList.add('icon');
       moreIcon.classList.add('edit');
-      moreIcon.id = `icon-${item.index}`;
+      moreIcon.id = `edit-${item.index}`;
+      trashIcon.src = TrashIcon;
+      trashIcon.classList.add('icon');
+      trashIcon.classList.add('delete');
+      trashIcon.classList.add('display-none');
+      trashIcon.id = `delete-${item.index}`;
       data.push(li);
     });
     return data;
@@ -43,8 +64,9 @@ export default class ToDoList {
   reindex() {
     let counter = 1;
     this.list.forEach((item) => {
-      item.id = counter;
+      item.index = counter;
       counter += 1;
     });
+    localStorage.setItem('data', JSON.stringify(this.list));
   }
 }

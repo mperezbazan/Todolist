@@ -80,6 +80,10 @@ body {
   align-items: center;
 }
 
+.checkbox-container {
+  display: flex;
+}
+
 .checkbox {
   margin-right: 12px;
   transform: scale(1.5);
@@ -91,7 +95,20 @@ body {
   accent-color: green;
 }
 
-.edit {
+.input-edit-text {
+  border: 0;
+  width: 100%;
+  font-size: 18px;
+  line-height: 16px;
+  font-style: italic;
+  background-color: transparent;
+}
+
+.input-edit-text:focus {
+  outline: 0;
+}
+
+.editMode {
   background-color: beige;
 }
 
