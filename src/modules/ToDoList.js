@@ -72,6 +72,7 @@ export default class ToDoList {
   }
 
   clearCompleted() {
+    this.list = JSON.parse(localStorage.getItem('data')) || [];
     const newList = this.list.filter((element) => element.completed !== true);
     this.list = newList;
     localStorage.setItem('data', JSON.stringify(this.list));

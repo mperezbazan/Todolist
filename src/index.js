@@ -57,7 +57,6 @@ listDiv.appendChild(renderList());
 listDiv.appendChild(renderFoot());
 const addButton = listDiv.querySelector('#addButton');
 const inputText = listDiv.querySelector('#addItem');
-const listContent = listDiv.querySelector('#list-content');
 function addListener() {
   const editButtons = listDiv.querySelectorAll('.edit');
   editButtons.forEach((button) => {
@@ -157,7 +156,7 @@ addButton.addEventListener('click', () => {
   tasks.add(data);
   inputText.value = '';
   tasks.reindex();
-  listDiv.replaceChild(renderList(), listContent);
+  refreshList();
   addListener();
 });
 inputText.addEventListener('keypress', (e) => {
